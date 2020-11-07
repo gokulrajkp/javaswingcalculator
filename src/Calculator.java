@@ -10,7 +10,7 @@ import javax.swing.SwingConstants;
 
 
 public class Calculator implements ActionListener {
-	
+	boolean isoperatorcliked=false;
 	JFrame jf;
 	JLabel displayLabel;
 	JButton sevenButton;
@@ -29,6 +29,8 @@ public class Calculator implements ActionListener {
 	JButton mulButton;
 	JButton minusButton;
 	JButton plusButton;
+	JButton clearButton;
+	String oldValue;
 	
 	public Calculator() {
 		jf=new JFrame("calculator");
@@ -139,6 +141,13 @@ public class Calculator implements ActionListener {
 		plusButton.addActionListener(this);
 		jf.add(plusButton);
 		
+		clearButton=new JButton("Clear");
+		clearButton.setBounds(430, 430, 150, 80);
+		clearButton.setFont(new Font("ARIAL",Font.PLAIN,40));
+		clearButton.addActionListener(this);
+		jf.add(clearButton);
+		
+		
 		
 		
 		jf.setVisible(true);
@@ -152,53 +161,135 @@ public class Calculator implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==sevenButton) {
-			displayLabel.setText("7");
+			if(isoperatorcliked) {
+				displayLabel.setText("7");
+				isoperatorcliked=false;
+			}else {
+				displayLabel.setText(displayLabel.getText()+"7");
+			}
+			
 			
 		}else if(e.getSource()==eightButton) {
-			displayLabel.setText("8");
+			if(isoperatorcliked) {
+				displayLabel.setText("8");
+				isoperatorcliked=false;
+			}else {
+				displayLabel.setText(displayLabel.getText()+"8");
+			}
+
 			
 		}else if(e.getSource()==nineButton) {
-			displayLabel.setText("9");
+			if(isoperatorcliked) {
+				displayLabel.setText("9");
+				isoperatorcliked=false;
+			}else {
+				displayLabel.setText(displayLabel.getText()+"9");
+			}
 			
 		}else if(e.getSource()==fourButton) {
-			displayLabel.setText("4");
+			if(isoperatorcliked) {
+				displayLabel.setText("4");
+				isoperatorcliked=false;
+			}else {
+				displayLabel.setText(displayLabel.getText()+"4");
+			}
 			
 		}else if(e.getSource()==fiveButton) {
-			displayLabel.setText("5");
+			if(isoperatorcliked) {
+				displayLabel.setText("5");
+				isoperatorcliked=false;
+			}else {
+				displayLabel.setText(displayLabel.getText()+"5");
+			}
 			
 		}else if(e.getSource()==sixButton) {
-			displayLabel.setText("6");
+			if(isoperatorcliked) {
+				displayLabel.setText("6");
+				isoperatorcliked=false;
+			}else {
+				displayLabel.setText(displayLabel.getText()+"6");
+			}
 			
 		}else if(e.getSource()==oneButton) {
-			displayLabel.setText("1");
+			if(isoperatorcliked) {
+				displayLabel.setText("1");
+				isoperatorcliked=false;
+			}else {
+				displayLabel.setText(displayLabel.getText()+"1");
+			}
 			
 		}else if(e.getSource()==twoButton) {
-			displayLabel.setText("2");
+			if(isoperatorcliked) {
+				displayLabel.setText("2");
+				isoperatorcliked=false;
+			}else {
+				displayLabel.setText(displayLabel.getText()+"2");
+			}
 			
 		}else if(e.getSource()==threeButton) {
-			displayLabel.setText("3");
+			if(isoperatorcliked) {
+				displayLabel.setText("3");
+				isoperatorcliked=false;
+			}else {
+				displayLabel.setText(displayLabel.getText()+"3");
+			}
 			
 		}else if(e.getSource()==zeroButton) {
-			displayLabel.setText("0");
+			if(isoperatorcliked) {
+				displayLabel.setText("0");
+				isoperatorcliked=false;
+			}else {
+				displayLabel.setText(displayLabel.getText()+"0");
+			}
 			
 		}else if(e.getSource()==dotButton) {
-			displayLabel.setText(".");
+			if(isoperatorcliked) {
+				displayLabel.setText(".");
+				isoperatorcliked=false;
+			}else {
+				displayLabel.setText(displayLabel.getText()+".");
+			}
+			
 			
 		}else if(e.getSource()==equalButton) {
-			displayLabel.setText("=");
+			
+				String newvValue=displayLabel.getText();
+				float oldValueF=Float.parseFloat(oldValue);
+				float newValueF=Float.parseFloat(newvValue);
+				float result=oldValueF+newValueF;
+				displayLabel.setText(result+"");
+			
+			
 			
 		}
 		else if(e.getSource()==divButton) {
+			
+			isoperatorcliked=true;
+			oldValue=displayLabel.getText();
 			displayLabel.setText("/");
 			
+			
 		}else if(e.getSource()==mulButton) {
+			
+			isoperatorcliked=true;
+			oldValue=displayLabel.getText();
 			displayLabel.setText("x");
 			
 		}else if(e.getSource()==minusButton) {
+			
+			isoperatorcliked=true;
+			oldValue=displayLabel.getText();
 			displayLabel.setText("-");
 			
 		}else if(e.getSource()==plusButton) {
+			
+			isoperatorcliked=true;
+			oldValue=displayLabel.getText();
 			displayLabel.setText("+");
+			
+			
+		}else if(e.getSource()==clearButton) {
+			displayLabel.setText("");
 			
 		}
 		
