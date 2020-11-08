@@ -31,6 +31,7 @@ public class Calculator implements ActionListener {
 	JButton plusButton;
 	JButton clearButton;
 	String oldValue;
+	String oprator;
 	
 	public Calculator() {
 		jf=new JFrame("calculator");
@@ -252,13 +253,39 @@ public class Calculator implements ActionListener {
 			
 			
 		}else if(e.getSource()==equalButton) {
+			String newvValue=displayLabel.getText();
+			float oldValueF=Float.parseFloat(oldValue);
+			float newValueF=Float.parseFloat(newvValue);
 			
-				String newvValue=displayLabel.getText();
-				float oldValueF=Float.parseFloat(oldValue);
-				float newValueF=Float.parseFloat(newvValue);
+			
+			if(oprator=="+") {
+				
+				
 				float result=oldValueF+newValueF;
 				displayLabel.setText(result+"");
-			
+
+			}
+			if(oprator=="-") {
+				
+				
+				float result=oldValueF-newValueF;
+				displayLabel.setText(result+"");
+
+			}
+			if(oprator=="x") {
+				
+				
+				float result=oldValueF*newValueF;
+				displayLabel.setText(result+"");
+
+			}
+			if(oprator=="/") {
+				
+				
+				float result=oldValueF/newValueF;
+				displayLabel.setText(result+"");
+
+			}
 			
 			
 		}
@@ -267,6 +294,7 @@ public class Calculator implements ActionListener {
 			isoperatorcliked=true;
 			oldValue=displayLabel.getText();
 			displayLabel.setText("/");
+			oprator= displayLabel.getText();
 			
 			
 		}else if(e.getSource()==mulButton) {
@@ -274,18 +302,23 @@ public class Calculator implements ActionListener {
 			isoperatorcliked=true;
 			oldValue=displayLabel.getText();
 			displayLabel.setText("x");
+			oprator= displayLabel.getText();
 			
 		}else if(e.getSource()==minusButton) {
 			
 			isoperatorcliked=true;
 			oldValue=displayLabel.getText();
 			displayLabel.setText("-");
+			oprator= displayLabel.getText();
 			
 		}else if(e.getSource()==plusButton) {
 			
 			isoperatorcliked=true;
 			oldValue=displayLabel.getText();
 			displayLabel.setText("+");
+			oprator= displayLabel.getText();
+			
+			
 			
 			
 		}else if(e.getSource()==clearButton) {
