@@ -1,4 +1,5 @@
 import java.awt.Color;
+
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -32,6 +33,7 @@ public class Calculator implements ActionListener {
 	JButton clearButton;
 	String oldValue;
 	String oprator;
+	float result;
 	
 	public Calculator() {
 		jf=new JFrame("calculator");
@@ -261,32 +263,32 @@ public class Calculator implements ActionListener {
 			if(oprator=="+") {
 				
 				
-				float result=oldValueF+newValueF;
+				result=oldValueF+newValueF;
 				displayLabel.setText(result+"");
 
 			}
 			if(oprator=="-") {
 				
 				
-				float result=oldValueF-newValueF;
+				result=oldValueF-newValueF;
 				displayLabel.setText(result+"");
 
 			}
 			if(oprator=="x") {
 				
 				
-				float result=oldValueF*newValueF;
+				result=oldValueF*newValueF;
 				displayLabel.setText(result+"");
 
 			}
 			if(oprator=="/") {
 				
 				
-				float result=oldValueF/newValueF;
-				displayLabel.setText(result+"");
+				result=oldValueF/newValueF;
+				displayLabel.setText(result+""); 
 
 			}
-			
+		
 			
 		}
 		else if(e.getSource()==divButton) {
